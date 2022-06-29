@@ -4,17 +4,21 @@
     <main class="flex flex--column">
         <Introduction :title="introduction.title" />
         <section class="columns container inline-center">
-            <TechStacks />
-            <GithubDetails />
+            <div class="left-column">
+                <TechStacks class="techstack-container" />
+                <Blog class="blog-container" />
+            </div>
+            <GithubDetails class="project-container" />
         </section>
     </main>
 </template>
 
 <script>
-import Introduction from "./components/Introduction.vue";
-import Navbar from "./components/Navbar.vue";
-import TechStacks from "./components/TechStacks.vue";
-import GithubDetails from "./components/githubColumn/GithubDetails.vue";
+import Introduction from "@/components/introduction/Introduction.vue";
+import Navbar from "@/components/Navbar.vue";
+import TechStacks from "@/components/TechStacks.vue";
+import GithubDetails from "@/components/githubColumn/GithubDetails.vue";
+import Blog from "@/components/blog/Blog.vue";
 
 export default {
     name: "App",
@@ -23,6 +27,7 @@ export default {
         Navbar,
         TechStacks,
         GithubDetails,
+        Blog,
     },
     data() {
         return {
@@ -54,6 +59,10 @@ export default {
 
     /* Sizes */
     --nav-height: 4rem;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 #app {

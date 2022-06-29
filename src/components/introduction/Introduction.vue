@@ -3,7 +3,9 @@
         <article class="bio">
             <h1 class="flex">
                 {{ title }}
-                <span class="blob-wave"><img src="@/assets/images/blob-wave-2.gif" alt="" /></span>
+                <span class="blob-wave"
+                    ><img src="@/assets/images/blob-wave-webp.webp" alt=""
+                /></span>
             </h1>
             <BioContent />
             <IconList :icons="iconList" />
@@ -19,10 +21,10 @@
 </template>
 
 <script>
-import Avatar from "./Avatar.vue";
+import Avatar from "@/components/Avatar.vue";
 
-import IconList from "./introductionSection/IconList.vue";
-import BioContent from "./introductionSection/BioContent.vue";
+import IconList from "@/components/introduction/IconList.vue";
+import BioContent from "@/components/introduction/BioContent.vue";
 
 // Images
 import avatarImage from "@/assets/images/kisuke.svg";

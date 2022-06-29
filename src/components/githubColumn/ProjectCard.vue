@@ -1,29 +1,36 @@
 <template>
-    <article class="favourite-project-card">
+    <article class="favourite-project-card flex flex--column">
         <header>
             <h1>{{ name }}</h1>
             <span class="flex star-container">
                 <Star :width="starWidth" />
-                <span>{{ this.starsGazers || "Rate Limit reached" }}</span>
+                <span>{{ this.starsGazers }}</span>
             </span>
         </header>
-        <div class="body"></div>
+        <div class="body">
+            {{ description }}
+        </div>
+        <Button :text="'View on Github'" :link="githubLink" />
     </article>
 </template>
 
 <script>
 import Star from "./Star.vue";
+import Button from "../Button.vue";
 
 import GithubRepoDetails from "@/js/githubRepo.js";
 
 export default {
-    name: "FavouriteProjectCard",
+    name: "ProjectCard",
     components: {
         Star,
+        Button,
     },
     props: {
         name: String,
         link: String,
+        githubLink: String,
+        description: String,
     },
     data() {
         return {
@@ -33,23 +40,33 @@ export default {
 
     async setup(props) {
         const repoDetails = new GithubRepoDetails(props.link);
-        const starsGazers = await repoDetails.getStars();
+        let starsGazers = await repoDetails.getStars();
+        // if stargazers are not available, then show "Rate Limit reached"
+        if (starsGazers === null) {
+            starsGazers = "Rate Limit reached";
+        }
         return { starsGazers };
     },
 };
 </script>
 
 <style scoped>
+::selection {
+    background: var(--text-color);
+    color: #000;
+}
+
 article.favourite-project-card {
     --header-elms-size: 1.25rem;
 }
 
 .favourite-project-card {
     background-color: var(--primary);
-    min-height: 5rem;
+    /* min-height: 5rem; */
+    height: fit-content;
     margin-block: 1rem;
     padding: 0.5em;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 header {
@@ -60,8 +77,12 @@ header {
     font-size: var(--header-elms-size);
 }
 
+header h1 {
+    font-weight: 900;
+}
+
 .star-container {
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
 }
 </style>
