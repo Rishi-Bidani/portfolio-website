@@ -1,5 +1,5 @@
 <template>
-    <article class="favourite-project-card flex flex--column">
+    <article class="project-card flex flex--column">
         <header>
             <h1>{{ name }}</h1>
             <span class="flex star-container">
@@ -56,17 +56,25 @@ export default {
     color: #000;
 }
 
-article.favourite-project-card {
+article.project-card {
     --header-elms-size: 1.25rem;
 }
 
-.favourite-project-card {
-    background-color: var(--primary);
+.project-card {
+    --alpha: 0.1;
+    --primary-alpha: rgba(29, 38, 57, var(--alpha));
+
+    /* background-color: var(--primary); */
+    border: 4px solid var(--primary);
     /* min-height: 5rem; */
     height: fit-content;
-    margin-block: 1rem;
     padding: 0.5em;
     border-radius: 0.5rem;
+
+    /* background: var(--primary-alpha);    */
+    backdrop-filter: saturate(180%) blur(10px);
+    padding: 1em;
+    width: 100%;
 }
 
 header {
@@ -78,7 +86,12 @@ header {
 }
 
 header h1 {
+    font-size: 1.5rem;
     font-weight: 900;
+}
+
+.body {
+    line-height: 1.5rem;
 }
 
 .star-container {

@@ -1,7 +1,7 @@
 <template>
     <div class="hr">
         <div class="before"></div>
-        <p class="text">{{ text }}</p>
+        <h3 class="text">{{ text }}</h3>
         <div class="after"></div>
     </div>
 </template>
@@ -28,6 +28,7 @@ export default {
     white-space: nowrap;
     text-transform: uppercase;
     font-size: 0.8rem;
+    font-weight: lighter;
 }
 
 .before {

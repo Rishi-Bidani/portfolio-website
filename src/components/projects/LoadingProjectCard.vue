@@ -21,7 +21,8 @@ export default {
 
 <style scoped>
 .favourite-project-card {
-    background-color: var(--primary);
+    --alpha: 0.1;
+    --primary-alpha: rgba(29, 38, 57, var(--alpha));
     min-height: 5rem;
     height: fit-content;
     margin-block: 1rem;
@@ -29,6 +30,9 @@ export default {
     border-radius: 0.5rem;
     grid-template-columns: 3rem 1fr;
     place-items: center;
+    border: 4px solid var(--primary);
+    background: var(--primary-alpha);
+    backdrop-filter: saturate(180%) blur(10px);
 }
 
 /* Loader */

@@ -5,10 +5,10 @@
         <Introduction :title="introduction.title" />
         <section class="columns container inline-center">
             <div class="left-column">
-                <TechStacks class="techstack-container" />
-                <Blog class="blog-container" />
+                <TechStacks class="techstack-container container" />
+                <Projects class="project-container" />
             </div>
-            <GithubDetails class="project-container" />
+            <Interests />
         </section>
     </main>
 </template>
@@ -17,8 +17,8 @@
 import Introduction from "@/components/introduction/Introduction.vue";
 import Navbar from "@/components/Navbar.vue";
 import TechStacks from "@/components/TechStacks.vue";
-import GithubDetails from "@/components/githubColumn/GithubDetails.vue";
-import Blog from "@/components/blog/Blog.vue";
+import Projects from "@/components/projects/Projects.vue";
+import Interests from "@/components/aside/Interests.vue";
 
 export default {
     name: "App",
@@ -26,8 +26,8 @@ export default {
         Introduction,
         Navbar,
         TechStacks,
-        GithubDetails,
-        Blog,
+        Projects,
+        Interests,
     },
     data() {
         return {
@@ -99,9 +99,15 @@ section.container {
     }
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
     section.container {
-        --section-width: 95%;
+        --section-width: 90%;
+    }
+} */
+
+@media screen and (max-width: 400px) {
+    section.container {
+        --section-width: 90%;
     }
 }
 
@@ -110,6 +116,10 @@ section.container {
     grid-template-columns: 2.5fr 1fr;
     grid-gap: 1rem;
     margin-bottom: 1rem;
+}
+
+.columns h2 {
+    font-size: clamp(1rem + 1vw, 2vw, 2rem);
 }
 
 @media screen and (max-width: 1000px) {
@@ -122,6 +132,10 @@ section.container {
 
 .grid {
     display: grid;
+}
+
+.grid-center {
+    place-items: center;
 }
 
 .flex {
