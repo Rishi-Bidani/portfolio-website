@@ -58,7 +58,6 @@ export default class GithubRepoDetails {
     async getStars() {
         const allRepos = await this.allRepos;
         const requiredRepo = allRepos.filter(repo => repo.url === this.link);
-        console.log(requiredRepo)
         const stars = requiredRepo[0].stargazers_count;
         return stars;
     }

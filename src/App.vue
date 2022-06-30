@@ -99,12 +99,6 @@ section.container {
     }
 }
 
-/* @media screen and (max-width: 1000px) {
-    section.container {
-        --section-width: 90%;
-    }
-} */
-
 @media screen and (max-width: 400px) {
     section.container {
         --section-width: 90%;

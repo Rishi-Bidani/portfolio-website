@@ -4,13 +4,13 @@
             <div class="rocket-stack">
                 <img
                     src="@/assets/images/rocket-flame.svg"
-                    alt=""
+                    alt="To top"
                     class="icon nav-icon rocket--flame"
                     draggable="false"
                 />
                 <img
                     src="@/assets/images/rocket-no-flame.svg"
-                    alt=""
+                    alt="To top"
                     class="icon nav-icon rocket"
                     draggable="false"
                 />

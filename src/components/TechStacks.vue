@@ -101,7 +101,10 @@ export default {
 
 <style scoped>
 .tech-stacks {
-    margin-block: 0 3.5rem;
+    --left-margin: 0;
+    --right-margin: 3.5rem;
+    margin-block: var(--left-margin) var(--right-margin);
+    width: 100%;
 }
 
 .icons-container {

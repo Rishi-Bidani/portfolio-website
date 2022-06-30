@@ -1,6 +1,6 @@
 <template>
     <aside>
-        <header>
+        <header class="main-title">
             <h2>Some of my interests</h2>
         </header>
         <section class="interests">
@@ -77,6 +77,9 @@ export default {
 <style>
 aside {
     width: 100%;
+}
+.main-title {
+    padding-block: 2em;
 }
 
 .photography {

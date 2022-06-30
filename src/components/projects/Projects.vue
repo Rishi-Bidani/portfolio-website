@@ -129,7 +129,8 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin-block: 1rem;
 }
 
 .cards > * {
