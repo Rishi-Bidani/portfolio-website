@@ -47,7 +47,8 @@ export default {
 }
 
 :root {
-    --bg-color: #0f1117;
+    --bg-values: 14, 16, 22;
+    --bg-color: rgba(14, 16, 22); /** Leave in rgba for image hovering effect to work */
     --primary: #1d2639;
 
     --selection-color: hsl(220, 19%, 15%);

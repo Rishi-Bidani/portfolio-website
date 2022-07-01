@@ -1,8 +1,8 @@
 <template>
-    <a :href="link" class="image">
-        <div class="overlay"></div>
-        <span class="overlay-text">Click to full size</span>
+    <a :href="link" class="image grid overlay-container">
+        <!-- <span class="overlay-text">Click to full size</span> -->
         <img :src="src" :alt="alt" class="small-size-img" />
+        <div class="overlay">Click to full size</div>
     </a>
 </template>
 
@@ -18,11 +18,12 @@ export default {
 </script>
 
 <style>
-.image {
-    cursor: pointer;
-    position: relative;
-    isolation: isolate;
-    display: grid;
+a.image {
+    text-decoration: none;
+}
+
+.overlay-container {
+    grid-template-columns: 1fr;
     place-items: center;
 }
 
@@ -41,27 +42,33 @@ export default {
 }
 
 .overlay {
-    position: absolute;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    display: none;
 }
 
-.overlay:hover {
-    position: absolute;
-    background: var(--bg-color);
-    height: 100%;
+.overlay-container:hover .overlay {
+    --overlay-color: var(--bg-values);
+    --overlay-opacity: 0.7;
+    --overlay-text-color: var(--text-color-3);
+
     width: 100%;
-    opacity: 0.7;
+    height: 100%;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    color: white;
+    display: grid;
+    place-items: center;
+
+    background-color: rgba(var(--overlay-color), var(--overlay-opacity));
+    color: var(--overlay-text-color);
 }
 
-.overlay:hover ~ .overlay-text {
-    z-index: 2;
-}
-
-.overlay-text {
-    position: absolute;
-    z-index: -1;
-    color: var(--text-color-3);
+.overlay-container img {
+    width: 100%;
+    grid-row-start: 1;
+    grid-column-start: 1;
 }
 </style>
