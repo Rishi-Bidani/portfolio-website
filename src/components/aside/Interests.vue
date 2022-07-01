@@ -5,7 +5,7 @@
         </header>
         <section class="interests">
             <article class="photography flex flex--column">
-                <HorizontalRule :text="'Photography'" />
+                <HorizontalRule :text="'Photography 📷'" />
                 <div class="images grid grid-center">
                     <Image
                         v-for="(image, index) in photography.sunsets"

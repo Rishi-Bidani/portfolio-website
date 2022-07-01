@@ -49,7 +49,6 @@ export default {
 :root {
     --bg-color: #0f1117;
     --primary: #1d2639;
-    /* --primary: #26282e; */
 
     --selection-color: hsl(220, 19%, 15%);
 
